@@ -1,0 +1,13 @@
+import { createRoot } from "react-dom/client";
+import "@fontsource/ibm-plex-sans/400.css";
+import "@fontsource/ibm-plex-sans/500.css";
+import "@fontsource/ibm-plex-sans/600.css";
+import "@fontsource/ibm-plex-sans/700.css";
+import "@fontsource/ibm-plex-mono/400.css";
+import "@fontsource/ibm-plex-mono/500.css";
+import "./index.css";
+import { App } from "./App";
+
+// Note: no <StrictMode>. The undo history uses refs inside state updaters,
+// which StrictMode's double invocation would record twice.
+createRoot(document.getElementById("root")!).render(<App />);

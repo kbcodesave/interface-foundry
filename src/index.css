@@ -1,0 +1,57 @@
+@import "tailwindcss";
+@source not "./codegen";
+@source not "./library";
+
+@theme {
+  --color-ink: #0a0b0c;
+  --color-panel: #121315;
+  --color-raised: #1a1c1f;
+  --color-hover: #22252a;
+  --color-line: #26292d;
+  --color-line-strong: #363a40;
+  --color-fg: #e8e6e1;
+  --color-dim: #a09e98;
+  --color-faint: #6e6d69;
+  --color-accent: #ff6b1a;
+  --color-accent-dim: #8a3c12;
+  --color-ok: #4cc38a;
+  --color-warn: #f2b134;
+  --color-bad: #ef5b4c;
+  --font-sans: "IBM Plex Sans", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+
+html, body, #root { height: 100%; }
+body {
+  margin: 0;
+  background: var(--color-ink);
+  color: var(--color-fg);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  -webkit-font-smoothing: antialiased;
+}
+::selection { background: var(--color-accent); color: #140a03; }
+* { scrollbar-width: thin; scrollbar-color: #33363b transparent; }
+
+.canvas-grid {
+  background-color: #0d0e10;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px),
+    linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+  background-size: 96px 96px, 96px 96px, 12px 12px, 12px 12px;
+}
+.panel-texture {
+  background-image: repeating-linear-gradient(135deg, rgba(255,255,255,0.012) 0 1px, transparent 1px 6px);
+}
+@layer components {
+  .label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-faint);
+  }
+}
+:focus-visible { outline: 1px solid var(--color-accent); outline-offset: 1px; }
